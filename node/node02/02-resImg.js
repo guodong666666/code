@@ -5,7 +5,8 @@ const path =require("path");
 http.createServer((req, res) => {
 
   let url = req.url;
-  if (url === "/login") {
+  console.log(url);
+    if (url === "/login") {
     fs.readFile(path.join(__dirname, "/pages/login.html"), (err, data) => {
       if(err) {
         throw err;
@@ -26,7 +27,18 @@ http.createServer((req, res) => {
       }
       res.end(data);
     })
-  } else {
+  }else if (url === "/images/index.png") {
+    fs.readFile(path.join(__dirname, "/images/index.png"), (err, data) => {
+      if(err) {
+        throw err;
+      }
+      res.setHeader("content-type", "application/x-png");
+      res.end(data);
+      
+    })
+    
+  }
+   else {
     fs.readFile(path.join(__dirname, "/pages/error.html"), (err, data) => {
       if(err) {
         throw err;

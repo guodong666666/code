@@ -29,7 +29,7 @@ http.createServer((req, res) => {
 
   //读取文件
 
-}).listen("80", (err) => {
+}).listen("8080", (err) => {
   if(err) {
     throw err;
   }
