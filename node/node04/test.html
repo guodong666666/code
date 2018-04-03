@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+
+
+    function checkReg(str) {
+      var reg = /^([a-zA-Z]+)(\d+)$/;
+      if(!reg.test(str)){
+        console.log("正则不符合规则");
+        return;
+      }
+
+      var result = reg.exec(str);
+      console.log("字符串----" + result[1]);
+      console.log("数字----" + result[2]);
+    }
+
+    checkReg("abc123");
+    checkReg("eddk3211");
+    checkReg("sss111");
+    checkReg("111ssss");
+
+</script>
+</body>
+</html>

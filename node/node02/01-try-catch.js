@@ -8,3 +8,12 @@ fs.writeFile("./sss/abc.txt", "大家好", "utf-8", (err) => {
   }
   console.log("ok");
 });
+
+fs.readFile("./text", err => {
+
+});
+
+
+fs.readFile("111", err => {
+
+});
