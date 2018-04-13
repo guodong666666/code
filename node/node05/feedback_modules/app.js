@@ -4,6 +4,12 @@ const router = require("./router");
 
 http.createServer((req, res) => {
   
+  //给res添加render方法
+  res.render = (viewName, data) => {
+    
+  };
+
+
   //启动路由
   router(req, res);
 
