@@ -82,7 +82,11 @@
                 <td>{{ v.name }}</td>
                 <td>{{ v.type }}</td>
                 <td><img width="50" src="{{ v.avatar }}" alt="{{ v.name }}"></td>
-                <td><a href="/hero/view?id={{ v.id }}">查看</a></td>
+                <td>
+                  <a class="btn btn-sm btn-success" href="/hero/view?id={{ v.id }}">查看</a>
+                  <a href="/hero/edit?id={{ v.id }}" class="btn btn-sm btn-primary">修改</a>
+                  <a href="/hero/delete?id={{ v.id }}" class="btn btn-sm btn-danger">删除</a>
+                </td>
               </tr>
             {{/each}}
           </tbody>

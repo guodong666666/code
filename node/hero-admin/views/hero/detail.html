@@ -63,30 +63,13 @@
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="sub-header">英雄列表</h2>
-        <a href="/hero/add" class="btn btn-success btn-sm">添加英雄</a>
-        <table class="table table-bordered table-hover table-striped">
-          <thead>
-            <tr>
-              <th>编号</th>
-              <th>名称</th>
-              <th>定位</th>
-              <th>头像</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{each heros v i}}
-              <tr>
-                <td>{{ v.id }}</td>
-                <td>{{ v.name }}</td>
-                <td>{{ v.type }}</td>
-                <td><img width="50" src="{{ v.avatar }}" alt="{{ v.name }}"></td>
-                <td><a href="/hero/view?id={{ v.id }}">查看</a></td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
+        <h2 class="sub-header">Section title</h2>
+        <p>编号: {{ id }}</p>
+        <p>名称: {{ name }}</p>
+        <p>头像: <img src="{{ avatar }}" alt="{{ name }}"></p>
+        <p>定位: {{ type }}</p>
+        <p>声音: <audio src="{{ voice }}" controls></audio></p>
+        <p>描述: {{ story }}</p>
       </div>
     </div>
   </div>
