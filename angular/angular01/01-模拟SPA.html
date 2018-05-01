@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    header {
+      height: 60px;
+      background-color: pink;
+    }
+
+    header li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      line-height: 60px;
+      height: 60px;
+    }
+
+    main {
+      height: 400px;
+      background-color: yellowgreen;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header>
+    <ul>
+      <li>
+        <a href="#/list">音乐列表</a>
+      </li>
+      <li>
+        <a href="#/now">正在播放</a>
+      </li>
+      <li>
+        <a href="#/info">我的音乐</a>
+      </li>
+      <li>
+        <a href="#/more">更多音乐</a>
+      </li>
+    </ul>
+  </header>
+  <main>
+
+  </main>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    //hashchange:当hash发生改变的时候触发
+    $(window).on("hashchange", function () {
+
+      switch (location.hash) {
+        case "#/list":
+          $.getJSON("./data/list.json", function (data) {
+            $("main").html("<h1>" + data.name + "</h1><p>" + data.content + "</p>");
+          });
+          break;
+        case "#/info":
+          $.getJSON("./data/info.json", function (data) {
+            $("main").html("<h1>" + data.name + "</h1><p>" + data.content + "</p>");
+          });
+          break;
+        case "#/more":
+          $.getJSON("./data/more.json", function (data) {
+            $("main").html("<h1>" + data.name + "</h1><p>" + data.content + "</p>");
+          });
+          break;
+        case "#/now":
+          $.getJSON("./data/now.json", function (data) {
+            $("main").html("<h1>" + data.name + "</h1><p>" + data.content + "</p>");
+          });
+          break;
+      }
+
+    }).trigger("hashchange");
+  </script>
+</body>
+
+</html>

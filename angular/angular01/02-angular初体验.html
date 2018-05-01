@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<!-- ng-app：指定angular管理的区域 -->
+<body ng-app>
+  <h1>第一个angular程序</h1>
+  <!-- 让input与username关联 -->
+  <input type="text" placeholder="请输入内容" ng-model="username">
+  <!-- {{ 显示username }} -->
+  <div>{{ username }}</div>
+  <!-- 1. 引入angular文件 -->
+  <script src="angular.js"></script>
+</body>
+
+</html>

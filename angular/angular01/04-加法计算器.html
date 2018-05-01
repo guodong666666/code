@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- 2. 指定angular的管理区域 -->
+  <div ng-app>
+    <input type="text" ng-model="n1">
+    +
+    <input type="text" ng-model="n2">
+    <!-- 3. 点击的时候，把n1和n2的值加起来给n3 -->
+    <button ng-click="n3 = +n1 + +n2">=</button>
+    <input type="text" ng-model="n3">
+  </div>
+
+</body>
+</html>
+<!-- 1. 引入angular文件 -->
+<script src="angular.js"></script>
