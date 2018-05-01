@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <p>{{ msg1 }}</p>
+    <p>{{ msg2 }}</p>
+    <p>{{ msg3 }}</p>
+    <p>{{ [1,2,3] }}</p>
+    <p>{{ msg3 > 2 ? '呵呵':'哈哈' }}</p>
+
+
+    <!-- 不能出现语句 -->
+    <p>{{ if(true){111} }}</p>
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      msg1: "吃了没",
+      msg2: true,
+      msg3: 3
+    }
+  });
+</script>
