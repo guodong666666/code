@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-bind:title可以直接简写成:title, 同理v-bind:src可以简写成:src -->
+    <h1 :title="msg">鼠标移动上来</h1>
+    <img :src="src" :title="msg">
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: '移上来就移上来呗',
+      src: '1.png'
+    }
+  })
+</script>

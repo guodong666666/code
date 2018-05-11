@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+   
+    <!-- 3. .capture可以让事件在捕获阶段发生 -->
+    <!-- 4. .once表示事件只会触发一次 -->
+    <!-- 5. .self表示只有点击自己才会触发 -->
+    <div class="box" @click.capture.once.self="boxFn">
+      <!-- 1. .stop可以阻止事件冒泡 -->
+      <button @click.stop="btnFn">按钮</button>
+
+      <!-- 2. .prevent可以阻止浏览器的默认行为，可以.stop一起使用 -->
+      <a href="http://www.baidu.com" @click.prevent.stop="aFn">百度一下</a>
+    </div>
+
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue'
+    },
+    methods: {
+      boxFn: function() {
+        console.log("div的点击事件");
+      },
+      btnFn :function () {
+        console.log("button的点击事件");
+      },
+      aFn:function () {
+        console.log("a链接的点击事件");
+      }
+    }
+    
+  })
+</script>

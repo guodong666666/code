@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .pink {
+      background-color: pink;
+    }
+    .red {
+      color: red;
+    }
+
+    .fz {
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 1. v-bind对于class有增强，允许值是一个对象，通过布尔值来确定有没有这个类 -->
+    <!-- 2. 有pink这个类，没有red这个类 -->
+    <!-- 3. v-bind:class可以和class属性共存, 里面的值不会覆盖class属性的值-->
+    <!-- 4. 对于元素肯定有得类，直接写到class属性中即可，对于会变化的类，写到:class属性中 -->
+    <h1 class="fz" v-bind:class="{pink:true, red:false, fz:false}">我是一个大标题</h1>
+
+    <!-- :class的值可以是一个数组，注意数组的值都是字符串类型 -->
+    <h2 class="fz" :class="['pink', 'red']">标题2</h2>
+
+    <!-- 如果不带引号，说明green是一个变量，表示data中的green变量 -->
+    <h2 class="fz" :class="['pink', 'red']">标题2</h2>
+
+
+    <!-- 可以对象和数组一起使用 -->
+    <h3 class="fz" :class="[{pink:true}, 'red']"></h3>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      
+    }
+  })
+</script>

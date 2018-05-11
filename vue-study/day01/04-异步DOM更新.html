@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 绑定事件的指令，click表示绑定click事件 -->
+    <button v-on:click="fn">按钮</button>
+    <h1>{{ msg }}</h1>
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    //用于提供数据
+    data: {
+      msg: 'hello world'
+    },
+    //用于提供方法，比如事件的处理程序
+    methods: {
+      fn: function () {
+        console.log("单击事件触发了");
+        //this就是当前的实例 this==app
+        this.msg = "1我修改了内容" + Math.random();
+        this.msg = "2我修改了内容" + Math.random();
+        this.msg = "3我修改了内容" + Math.random();
+        this.msg = "4我修改了内容" + Math.random();
+        this.msg = "5我修改了内容" + Math.random();
+
+        //注意:数据变化后，DOM更新是异步的，等到所有的数据全部修改完成之后然后一次性的更新DOM，
+        //从而提高dom渲染的效率
+        console.log(this.$el.children[1].innerText);
+
+        //如果想要获取更新后的值，需要使用nextTick
+        //$nextTick中得function会在dom更新后，立即执行。
+        this.$nextTick(function () {
+          this.$el.children[1].innerText
+        });
+      }
+    }
+  })
+</script>

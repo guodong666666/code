@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+   <!-- 1. 可以通过v-on指令来注册事件，比如v-on:click  v-on:mouseover -->
+   <!-- 2. 事件处理程序不要由data来提供，由methods进行提供 -->
+   <!-- 3. v-on:click写起来比较繁琐，可以使用 @click简写，即@相当于v-on -->
+   <button v-on:click='clickFn' @mouseenter="mouseenterFn">点我呀</button>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue'
+    },
+    methods: {
+      clickFn: function() {
+        console.log("点你就点你,谁怕谁");
+      },
+      mouseenterFn: function () {
+        console.log("你过来呀");
+      }
+    }
+  })
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+   <ul>
+     <!-- 1. v-for可以遍历数据 -->
+     <!-- 2. v-for的语法： item in list， 类似于for..in循环 -->
+     <li v-for="item in list">
+       姓名：{{ item.name }} 年龄：{{ item.age }}
+     </li>
+   </ul>
+
+   <!-- 3. 如果想要获取到数组中的索引， (item, index) in list -->
+   <p v-for="(item, index, key) in list">
+     编号：{{ index }} 姓名：{{ item.name }} 年龄：{{ item.age }}
+   </p>
+
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      list: [
+        {name:"zs", age:18},
+        {name:"ls", age:19},
+        {name:"ww", age:20},
+        {name:"zl", age:22}
+      ]
+    }
+  })
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <titlkeykeye>Document</titlkeykeye>
+</head>
+<body>
+  <div id="app">
+    <!-- v-for可以遍历对象， (val, key) in obj: val表示值， key:表示键 -->
+    <p v-for="(val, key) in obj">
+      键: {{ key  }}  ====  值： {{ val }}
+    </p>
+    <!-- v-for遍历对象时，还提供了索引号，当然一般用不着  (val, key, index) in obj -->
+    <div v-for="(val, key, index) in obj">
+        键: {{ key  }}  ====  值： {{ val }}  ===== 索引：{{ index }}
+    </div>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      obj: {
+        name: "张三",
+        age: 18,
+        gender: "男"
+      } 
+    }
+  })
+</script>

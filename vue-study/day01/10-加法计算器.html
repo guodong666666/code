@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="n1"> +
+    <input type="text" v-model="n2">
+    <!-- 注册点击事件 -->
+    <button @click='clickFn'>=</button>
+    <input type="text" v-model="n3">
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      n1: '',
+      n2: '',
+      n3: ''
+    },
+    methods: {
+      //点击的时候，让n3=n1+n2
+      clickFn: function() {
+        //需要把值转换成数值，注意，只要是页面获取到得内容，都会是字符串
+        this.n3 = +this.n1 + +this.n2;
+      }
+    }
+  })
+</script>

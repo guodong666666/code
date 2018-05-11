@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- v-bind:key可以简写为:key，可以在遍历的时候指定一个key属性，这样可以让vue的性能变得更高 -->
+      <li v-for="item in list" v-bind:key="item.id">
+          姓名：{{ item.name }} 年龄：{{ item.age }}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      list: [
+        {id:1, name:"zs", age:18},
+        {id:2, name:"ls", age:19},
+        {id:3, name:"ww", age:20},
+        {id:4, name:"zl", age:22}
+      ]
+    }
+  })
+</script>
