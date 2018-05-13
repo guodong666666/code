@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    .table {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="">id</label>
+        <input type="text" class="form-control" id="">
+      </div>
+      <div class="form-group">
+        <label for="">名称</label>
+        <input type="email" class="form-control" id="">
+      </div>
+      <button type="submit" class="btn btn-primary">添加</button>
+    </form>
+
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名称</th>
+          <th>创建时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>奔驰</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>宝马</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>宝马3</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.js"></script>
+
+</body>
+
+</html>

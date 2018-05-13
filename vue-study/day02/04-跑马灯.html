@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="start">浪</button>
+    <button @click="stop">不浪</button>
+
+    <h1>{{ msg }}</h1>
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: '大吉大利，今晚吃鸡~',
+      timer:null
+    },
+    methods: {
+      start: function () {
+        clearInterval(this.timer);
+        this.timer = setInterval(() => {
+          //把第一个字符放到最后一个
+          this.msg = this.msg.slice(1) + this.msg.charAt(0)
+        }, 200);
+
+      },
+      stop: function () {
+        clearInterval(this.timer);
+      }
+    }
+  })
+</script>

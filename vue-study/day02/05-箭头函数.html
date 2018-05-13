@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  //ES6中推出来的新的创建函数的方法
+  var fn = function (item) {
+    return item++;
+  }
+
+  //箭头函数的标准写法  => 念做goes to
+  var fn = (item) => {
+    item++;
+  }
+  //箭头函数的参数
+  //1. 如果没有参数,使用()
+  var fn = () => item++;
+  //2. 如果只有一个参数，()可以省略
+  var fn = item => item++;
+  //3. 如果有两个或以上参数，需要使用()
+  var fn = (item, index) => item++;
+
+  //函数体，需要使用{}
+  //1. 如果只有一行代码，可以省略{},并且会把这行代码的结果当成返回值
+  var fn = (item) => item++;
+  //2. 如果代码有多行，需要使用{}
+  var fn = item => {
+    item++;
+    console.log(item);
+  }
+
+
+
+
+</script>
+
+</body>
+</html>

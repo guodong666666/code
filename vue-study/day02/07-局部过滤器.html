@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 通过管道符|来使用过滤器 -->
+    <!-- 管道符的特点：会把第一项的值给第二项 -->
+    <!-- 可以使用多个过滤器，第一个过滤器的结果会作为参数传递给第二个过滤器 -->
+    <h1>{{ "Hello World" | up | trim}}</h1>
+    <h1>{{ "Hello World" | up("haha") | trim(5) }}</h1>
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue'
+    },
+
+    //创建局部过滤器，这个局部过滤器只属于当前实例
+    //一个过滤器就是一个函数
+    //参数1：传进来的内容  后续参数：表示传递给过滤器的参数
+    //返回值：返回的内容
+    filters: {
+      up: function (str, format) {
+        return str.toUpperCase();
+      },
+      //length=3 是ES6提供的默认参数的写法
+      trim: function (str, length = 3) {
+        return str.slice(0, length);
+      }
+    }
+  })
+</script>

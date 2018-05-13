@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="toggle">点击切换</button>
+    <!-- v-if和v-else只会显示一个内容，v-else必须紧跟在v-if的后面 -->
+    <h1 v-if="isShow">你好，请登录</h1>
+    <h1 v-else>恭喜你，黄金会员</h1>
+
+    <h1 v-show="isShow">v-show是用来显示隐藏的，设置的时display属性</h1>
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue',
+      isShow: false
+    },
+    methods: {
+      toggle: function () {
+        this.isShow = !this.isShow;
+      }
+    }
+  })
+</script>

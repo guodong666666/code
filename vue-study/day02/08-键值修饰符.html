@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 给input框注册keyup事件，当按下enter键的时候，会触发这个事件 -->
+    <input type="text" @keyup.enter="fn">
+    <!-- 给input框注册keyup事件，当按下enter键的时候，这个修饰符可以是keyCode值，会触发这个事件 -->
+    <!-- 常见的按键别名：enter tab delete esc space up down left right -->
+    <!-- 可以通过Vue.config.keyCodes.f1 = 113这种方式配置按键名 -->
+    <input type="text" @keyup.13="fn">
+
+    <input type="text" @keyup.f12 = "fn">
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  Vue.config.keyCodes.f12 = 13;
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue'
+    },
+    methods : {
+      fn: function() {
+        console.log("键盘按下事件触发了");
+      }
+    }
+  })
+</script>

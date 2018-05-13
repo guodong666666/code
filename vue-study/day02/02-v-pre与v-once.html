@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- {{  }} 会被vue解析出来 -->
+    <h1>{{ msg }}</h1>
+    
+    <!-- 加上了v-pre标签，{{}}会被直接打印出来 -->
+    <!-- vue会跳过v-pre内的内容，不需要单独的解析，因此对于不需要vue解析的内容，加上v-pre标签的话，性能会更高。 -->
+    <h1 v-pre>{{ msg }}</h1>
+
+
+
+    <!-- v-once只会渲染组件和元素一次，随后数据发生变化，元素和组件的内容都不会发生改变 -->
+    <h1 v-once>我是{{ msg }}</h1>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue'
+    }
+  })
+</script>
