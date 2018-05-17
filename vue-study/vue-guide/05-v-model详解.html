@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+
+    <!-- input框 -->
+    <input type="text" v-model='message' placeholder="edit me">
+    <h1>{{ message }}</h1>
+    <hr>
+    <!-- textarea框 -->
+    <textarea cols="30" rows="10" v-model='message2' placeholder="edit me"></textarea>
+    <!-- white-space:用于处理如何处理元素内的空白 -->
+    <!-- pre-wrap:保留空白与换行 -->
+    <h1 style="white-space: pre-wrap">{{ message2 }}</h1>
+
+    <hr>
+    <!-- 复选框 -->
+    <input type="checkbox" v-model='isCheck'>
+    <h1>复选的结果：{{ isCheck }}</h1>
+    <!-- 多个复选框，放入数组 -->
+    <input type="checkbox" value="jack" v-model='checkNames'>jack
+    <input type="checkbox" value="john" v-model='checkNames'>john
+    <input type="checkbox" value="mike" v-model='checkNames'>mike
+    <h1>多个复选的结果：{{ checkNames }}</h1>
+  </div>
+
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: '',
+      message2: '',
+      isCheck: '',
+      checkNames: [],
+    }
+  });
+</script>

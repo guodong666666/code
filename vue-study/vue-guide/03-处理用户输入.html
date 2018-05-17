@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- v-on注册事件 -->
+  <div id="app-5">
+    {{ message }}
+    <hr>
+    <button @click="reverse">逆转消息</button>
+    <hr>
+    <input type="text" v-model='message'>
+  </div>
+
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+
+  var app5 = new  Vue({
+    el: '#app-5',
+    data: {
+      message: '我爱你，胜过你爱我的一切'
+    },
+    methods: {
+      reverse: function () {
+        this.message = this.message.split("").reverse().join("");
+      }
+    }
+  })
+
+</script>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
   <style>
     .container {
       margin-top: 50px;
@@ -47,7 +47,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in search()" :key="item.id">
+        <tr v-for="(item,index) in searchList" :key="item.id">
           <td>{{ index+1 }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.time | dateFormat1("yyyy-MM-dd") }}</td>
@@ -59,7 +59,7 @@
     </table>
   </div>
 
-  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script src="vue.js"></script>
 
 </body>
 
@@ -139,12 +139,6 @@
           return id === item.id;
         });
         this.list.splice(idx, 1);
-      },
-      search: function () {
-        //根据keyword进行筛选
-        return this.list.filter(item => {
-          return item.name.indexOf(this.keyword) > -1;
-        });
       }
     },
     //创建局部过滤器
@@ -171,6 +165,14 @@
         }
         return fmt;
 
+      }
+    },
+    computed: {
+      searchList: function () {
+        //根据keyword进行筛选
+        return this.list.filter(item => {
+          return item.name.indexOf(this.keyword) > -1;
+        });
       }
     }
   });

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <input v-model="msg" type="text">
+    <h1 v-text="msg"></h1>
+    <h1 v-text="msg"></h1>
+    <h1 v-text="msg"></h1>
+  </div>
+
+
+  <script>
+    //模拟vue的双向数据绑定原理
+    function Vue(options) {
+      //自动找到v-text标签， 根据v-text的值，找到obj中同名的属性
+      //找到同名属性对应的值，赋值给v-text所在标签的innerText
+      var el = document.querySelector(options.el);
+      var oTexts = el.querySelectorAll("[v-text]");//获取所有的v-text的元素
+      oTexts.forEach(function(item) {
+        var val = item.getAttribute("v-text");//获取v-text对应的值
+        item.innerText = options.data[val];//设置值，值从传进来的data对象中获取
+      });
+      
+
+
+      //自动找到所有的v-model标签
+      var oModels = el.querySelectorAll("[v-model]");
+      oModels.forEach(function(item) {
+        var val = item.getAttribute("v-model");
+        item.value = options.data[val];
+      });
+      
+
+    }
+
+    var app = new Vue({
+      el: "#app",
+      data: {
+        msg: "你好吗"
+      }
+    });
+  </script>
+</body>
+
+</html>

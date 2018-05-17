@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- person.name是响应式的 -->
+    <h1>{{ person.name }}</h1>
+    <!-- person.age不是响应式的 -->
+    <h1>{{ person.age }}</h1>
+  </div>
+</body>
+</html>
+<!-- 1. 引入vue.js -->
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",  //指定vue管理的边界，只有在app中得内容才会被vue管理
+    //指定页面中需要使用的数据
+    data: {
+      person: {
+        name:'zs'
+      }
+    }
+  })
+</script>

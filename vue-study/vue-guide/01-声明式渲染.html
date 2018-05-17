@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- 数据message和DOM是关联上了，这些东西都是响应式的 -->
+    <!-- 打开控制台，修改app.message = 'hello world'，可以看到页面中的数据也发生了变化 -->
+    {{ message }}
+  </div>
+
+  <hr>
+  <div id="app-2">
+    <!-- v-bind:叫做指令，在vue中，所有带v-开头的都称之为指令 -->
+    <!-- 在控制台中修改app2.message = '新消息' -->
+    <span v-bind:title="message">
+      把鼠标停留在这个上面
+    </span>
+  </div>
+
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello vue',
+    }
+  });
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '页面创建于' + new Date().toLocaleString()
+    }
+  })
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="username">
+    <span v-show="isError">用户名需要5-20之间</span>
+
+    <hr>
+    <!-- 监视stu中的属性的变化 -->
+    <input type="text" v-model="stu.age">
+    <input type="text" v-model="stu.name">
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: 'hello Vue',
+      username: "hello world",
+      isError: false,
+      stu: {
+        age: 18,
+        name: "zs"
+      }
+    },
+    //通过watch监视数据变化
+    //只能监视data中的数据，要监视的数据，作为watch的属性
+    watch: {
+      // curr:当前值   old：value值
+      username: function (curr, old) {
+        console.log(curr, old);
+        if (curr.length < 4 || curr.length > 20) {
+          this.isError = true;
+        } else {
+          this.isError = false;
+        }
+      },
+      // 如果想要监视一个对象的属性的值的变化，需要使用deep:true
+      // 如果监视的是对象，只能获取到当前值，获取不到原来的值。
+      stu: {
+        handler: function(curr) {
+          console.log(curr.name);
+          console.log(curr.age);
+        },
+        deep: true
+      }
+    }
+  })
+</script>

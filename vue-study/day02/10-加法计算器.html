@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="n1"> +
+    <input type="text" v-model="n2">
+    <!-- 注册点击事件 -->
+    =
+    <input type="text" v-model="n3">
+  </div>
+</body>
+
+</html>
+<script src="vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      n1: '',
+      n2: ''
+    },
+    //计算属性，通过computed项来指定
+    //计算属性中的数据不允许出现在data中
+    //计算属性，虽然是一个function，但是在使用的使用不能使用()，因为获取的仅仅是这个函数的返回值。
+    //当计算属性依赖的属性发生了改变，那么计算属性就会被重新计算一次。
+    //优势:使用了缓存机制，如果这个值使用到了多次，这个字只会使用一次。
+    computed: {
+      n3: function() {
+        return +this.n1 + +this.n2;
+      }
+    }
+  })
+</script>

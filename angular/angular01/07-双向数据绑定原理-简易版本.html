@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text">
+    <h1></h1>
+  </div>
+  <script>
+    var data = {}
+    Object.defineProperty(data, "msg", {
+
+      set: function (val) {
+        this._val = val;
+        h1.innerText = this._val;
+        input.value = this._val;
+      },
+      get: function () {
+        return this._val;
+      }
+    });
+    var input = document.querySelector("input");
+    var h1 = document.querySelector("h1");
+    input.addEventListener("keyup", function () {
+      data.msg = this.value;
+    });
+  </script>
+</body>
+
+</html>

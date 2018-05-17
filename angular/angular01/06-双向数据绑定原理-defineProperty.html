@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var obj = {
+      name: "age",
+      age: 18
+    }
+
+    //注意：不能同时有value/write  和 get/set
+    Object.defineProperty(obj, 'gender', {
+      //value: "女", //该属性对应的值，默认是undefined
+      configurable: true, //默认为false，为true时，才可以修改值和删除
+      enumerable: false, //默认为false，为true时才可以被for..in遍历
+      //writable: false, //默认为false， 为true才可以被赋值运算符改变
+      //当获取属性值的时候，get方法会被调用
+      get: function () {
+        console.log("get执行了")
+        return this.value;
+      },
+      //该方法将接受唯一参数，并将该参数的新值分配给该属性。
+      set: function (val) {
+        this.value = val;
+        console.log("set执行了");
+      }
+    });
+    
+    obj.gender = "男"
+    console.log(obj.gender);
+  </script>
+
+</body>
+
+</html>

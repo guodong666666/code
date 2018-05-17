@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ msg }}</h1>
+  </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+
+  var app = new Vue({
+    //template: '<h5>{{ msg }}</h5>',
+    data: {
+      msg: "hello vue"
+    },
+
+    //实例初始化前的钩子函数，此时数据还没有完成双向绑定，所以通过this是获取不到数据的
+    //在这个钩子函数中能做的事情非常的少，如果页面需要一个loading状态，可以在这个钩子函数中使用。
+    beforeCreate: function() {
+      console.log(this.msg);
+      console.log(this);
+    },
+    //此时数据已经完成了双向绑定，因此可以获取到数据
+    //可以在这里发送ajax请求
+    created: function() {
+      console.log(this.msg);
+      console.log(this);
+    },
+
+    //挂载前
+    beforeMount: function() {
+      console.log(this.$el.outerHTML);
+    },
+    //挂载后，编译的内容已经替换了页面中的内容,此时可以操作DOM元素了
+    mounted: function() {
+      console.log("挂载后")
+      console.log(this.$el.outerHTML);
+    },
+
+    //在数据发生改变之前，要触发的钩子函数
+    beforeUpdate: function(){
+      console.log(this.$el.outerHTML);
+    },
+    
+    //数据更新后触发的钩子函数
+    updated: function() {
+
+      console.log(this.$el.outerHTML);
+    },
+
+
+    beforeDestroy: function () {
+      console.log("卸载前执行的方法，此时能够获取到DOM");
+      console.log(this.$el.outerHTML);
+    },
+
+    destroyed: function() {
+      console.log("卸载之后的方法");
+    }
+  });
+
+  app.$mount("#app");
+</script>
